@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SashaFront';
+
+  public isOutputVisible = true;
+
+  public toggleOutput() {
+    this.isOutputVisible = !this.isOutputVisible;
+  }
 }

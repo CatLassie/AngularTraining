@@ -5,5 +5,7 @@
   </h1>
 </div>
 <input-custom></input-custom>
-<output-custom></output-custom>
+<output-custom *ngIf="isOutputVisible"></output-custom>
 <router-outlet></router-outlet>
+
+<button (click)="toggleOutput()">toggle toggle</button>
