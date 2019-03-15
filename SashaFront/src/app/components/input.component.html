@@ -2,4 +2,11 @@
     Hallo input!
     <input [(ngModel)]="inputValue" />
     <button (click)="onInputSave()"> Ok! </button>
+
+    <p>pls give first and last name</p>
+    <input [(ngModel)]="firstName" />
+    <br/>
+    <input [(ngModel)]="lastName" />
+    <br/>
+    <button (click)="onUserSave()"> save user </button>
 </div>
