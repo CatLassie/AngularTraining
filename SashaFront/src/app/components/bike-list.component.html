@@ -1,0 +1,9 @@
+<div>
+    <h4>Bike Component!</h4>
+    <button (click) = "searchBikes()"> Search Bikes </button>
+    <div *ngFor = "let bike of bikes">
+        {{bike.id}}  
+        {{bike.title}} 
+        {{bike.speed}} <br>
+    </div>
+</div>

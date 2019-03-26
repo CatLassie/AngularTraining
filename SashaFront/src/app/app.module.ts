@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './components/input.component';
 import { OutputComponent } from './components/output.component';
 import { DataStore } from './stores/data.store';
+import { BikeListComponent } from './components/bike-list.component';
+import { BikeService } from './services/bike.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    OutputComponent
+    OutputComponent,
+    BikeListComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { DataStore } from './stores/data.store';
     FormsModule
   ],
   providers: [
-    DataStore
+    DataStore,
+    BikeService
   ],
   bootstrap: [AppComponent]
 })
