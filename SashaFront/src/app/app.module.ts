@@ -4,23 +4,26 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputComponent } from './components/input.component';
-import { OutputComponent } from './components/output.component';
 import { DataStore } from './stores/data.store';
 import { BikeListComponent } from './components/bike-list.component';
 import { BikeService } from './services/bike.service';
+import { BikeListItemComponent } from './components/bike-list-item.component';
+import { BikeDetailComponent } from './components/bike-detail.component';
+import { RouterModule} from '@angular/router';
+import { appRoutes} from './routes/routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
-    OutputComponent,
-    BikeListComponent
+    BikeListComponent,
+    BikeListItemComponent,
+    BikeDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     DataStore,
