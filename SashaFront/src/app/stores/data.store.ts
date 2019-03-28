@@ -1,3 +1,4 @@
+/* 
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -15,3 +16,4 @@ export class DataStore{
         this.adminSubject.next(admin);
     }
 }
+*/

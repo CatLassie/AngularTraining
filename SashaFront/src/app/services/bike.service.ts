@@ -17,4 +17,23 @@ export class BikeService {
     public getBike(id: number): Bike{
         return this.bikes.find(bike => bike.id === id);
     }
+
+    public saveBike(bike: Bike): void {
+      this.bikes = this.bikes.map(b => {
+            if(b.id === bike.id){
+                return bike
+            } else {
+                return b
+            }
+        })
+    }
+
+    public deleteBike(id:number): void {
+        this.bikes = this.bikes.filter(b => {
+            if(b.id === id){
+                return false
+            } else 
+                return true
+        })
+    }
 }

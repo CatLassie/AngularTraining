@@ -1,7 +1,12 @@
 <h4>Detail View</h4>
 <div>
-    {{bike.title}}
-    {{bike.speed}}
-    {{bike.text}}
+    <label>Title: </label>
+    <input [(ngModel)]="title"> <br>
+    <label>Speed: </label>
+    <input [(ngModel)]="speed"> <br>
+    <label>Text: </label>
+    <input [(ngModel)]="text"> <br>
 </div>
+<button (click)="submitData()">Save!</button>
 <button (click)="backClick()">Back!</button>
+<button (click)="deleteBike()">Delete</button>
