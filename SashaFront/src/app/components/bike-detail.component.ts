@@ -18,10 +18,14 @@ export class BikeDetailComponent implements OnInit{
     	
     ngOnInit() {
         const bikeId = +this.activatedRoute.snapshot.params['id'];
-        this.bike = this.service.getBike(bikeId);
-        this.title = this.bike.title
-        this.speed = this.bike.speed
-        this.text = this.bike.text
+        this.service.getBike(bikeId).subscribe(
+            bike => {
+                this.bike = bike;
+                this.title = bike.title
+                this.speed = bike.speed
+                this.text = bike.text
+            }
+        );
     }
 
     public submitData(){

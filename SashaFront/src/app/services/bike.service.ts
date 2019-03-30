@@ -1,8 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Bike } from '../models/bike';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BikeService {
+    private readonly baseUrl = 'http://localhost:8080/' 
+    constructor(private http: HttpClient) {
+
+    }
+    
+    public getBikes(): Observable<Bike[]> {
+         return this.http.get<Bike[]>(this.baseUrl + 'bikes');
+    }
+
+    public getBike(id: number): Observable<Bike> { 
+        return this.http.get<Bike>(this.baseUrl + 'bikes/' + id); 
+    }
+    public saveBike(bike: Bike): void {}
+    public deleteBike(id:number): void {}
+    
+    
+    /*
     private bikes: Bike[] = [
         new Bike(5, 'BroomStick69', 5, 'lol'),
         new Bike(6, 'GhostRider', 666 , 'Nikolas Cage'),
@@ -36,4 +55,5 @@ export class BikeService {
                 return true
         })
     }
+    */
 }

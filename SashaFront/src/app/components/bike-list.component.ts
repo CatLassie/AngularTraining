@@ -12,7 +12,14 @@ export class BikeListComponent {
     constructor(public service: BikeService){};
 
     public searchBikes(): void {
-        this.bikes = this.service.getBikes();
+        console.log('start of searchBikes()')
+        this.service.getBikes().subscribe(
+            bikes => {
+                console.log('callback of searchBikes()')
+                this.bikes = bikes;
+            }
+        );
+        console.log('end of searchBikes()')
     }
     
 } 

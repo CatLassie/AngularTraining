@@ -11,6 +11,7 @@ import { BikeListItemComponent } from './components/bike-list-item.component';
 import { BikeDetailComponent } from './components/bike-detail.component';
 import { RouterModule} from '@angular/router';
 import { appRoutes} from './routes/routes';
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,12 @@ import { appRoutes} from './routes/routes';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     // DataStore,
-    BikeService
+    BikeService,
   ],
   bootstrap: [AppComponent]
 })
