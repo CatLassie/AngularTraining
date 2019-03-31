@@ -9,4 +9,4 @@
 </div>
 <button (click)="submitData()">Save!</button>
 <button (click)="backClick()">Back!</button>
-<button (click)="deleteBike()">Delete</button>
+<button *ngIf = "bike" (click)="deleteBike()">Delete</button>

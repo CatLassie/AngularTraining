@@ -17,8 +17,18 @@ export class BikeService {
     public getBike(id: number): Observable<Bike> { 
         return this.http.get<Bike>(this.baseUrl + 'bikes/' + id); 
     }
-    public saveBike(bike: Bike): void {}
-    public deleteBike(id:number): void {}
+    
+    public saveBike(bike: Bike): Observable<number> {
+        return this.http.put<number>(this.baseUrl + 'bikes/' + bike.id, bike);
+    }
+
+    public createBike(bike: Bike): Observable<number> {
+        return this.http.post<number>(this.baseUrl + 'bikes', bike);
+    }
+
+    public deleteBike(id:number): Observable<number> {
+        return this.http.delete<number>(this.baseUrl + 'bikes/' + id);
+    }
     
     
     /*

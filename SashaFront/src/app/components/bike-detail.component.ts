@@ -17,21 +17,37 @@ export class BikeDetailComponent implements OnInit{
     constructor(public service:BikeService, public router: Router, public activatedRoute: ActivatedRoute){}
     	
     ngOnInit() {
-        const bikeId = +this.activatedRoute.snapshot.params['id'];
-        this.service.getBike(bikeId).subscribe(
-            bike => {
-                this.bike = bike;
-                this.title = bike.title
-                this.speed = bike.speed
-                this.text = bike.text
-            }
-        );
+        const bikeId = this.activatedRoute.snapshot.params['id'] ? +this.activatedRoute.snapshot.params['id'] : undefined;
+        if(bikeId){
+           this.service.getBike(bikeId).subscribe(
+                (bike) => {
+                    this.bike = bike;
+                    this.title = bike.title
+                    this.speed = bike.speed
+                    this.text = bike.text
+                }
+            ); 
+        } 
     }
 
     public submitData(){
-        let updatedBike = new Bike(this.bike.id, this.title, this.speed, this.text)
-        this.service.saveBike(updatedBike)
-        this.router.navigate(['bikes'])
+        if(this.bike){
+            let updatedBike = new Bike(this.bike.id, this.title, this.speed, this.text);
+            this.service.saveBike(updatedBike).subscribe(
+                (id) => {
+                    console.log('updated successfully!', id);
+                    this.router.navigate(['bikes']);
+                }
+            );   
+        } else {
+            let createdBike = new Bike(undefined, this.title, this.speed, this.text);
+            this.service.createBike(createdBike).subscribe(
+                (id) => {
+                    console.log('created successfully!', id);
+                    this.router.navigate(['bikes']);
+                }
+            );
+        }
     }
 
     public backClick(){
@@ -39,7 +55,11 @@ export class BikeDetailComponent implements OnInit{
     }
 
     public deleteBike() {
-        this.service.deleteBike(this.bike.id)
-        this.router.navigate(['bikes'])
+        this.service.deleteBike(this.bike.id).subscribe(
+           (id) => {
+               console.log('deleted!', id);
+               this.router.navigate(['bikes']);
+            }
+        );
     }
 }
