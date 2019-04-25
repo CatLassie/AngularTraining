@@ -14,6 +14,8 @@ import { appRoutes} from './routes/routes';
 import { HttpClientModule } from  '@angular/common/http';
 import { PersonComponent } from './components/person.component';
 import { PersonService } from './services/person.service';
+import { PlanetStore } from './stores/planet.store';
+import { PlanetComponent } from './components/planet.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PersonService } from './services/person.service';
     BikeListComponent,
     BikeListItemComponent,
     BikeDetailComponent,
-    PersonComponent
+    PersonComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { PersonService } from './services/person.service';
   providers: [
     // DataStore,
     BikeService,
-    PersonService
+    PersonService,
+    PlanetStore
   ],
   bootstrap: [AppComponent]
 })
